@@ -2,9 +2,73 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/stylesheets/foundation.css" />
+      <script src="/javascripts/vendor/modernizr.js"></script>
   </head>
   <body>
+  <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+          <nav class="tab-bar">
+              <section class="left-small">
+                  <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+              </section>
+
+              <section class="middle tab-bar-section">
+                  <h1 class="title">Webconfig</h1>
+              </section>
+
+              <!--
+              <section class="right-small">
+                  <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+              </section>
+              -->
+          </nav>
+
+          <aside class="left-off-canvas-menu">
+              <ul class="off-canvas-list">
+                  <li><label>Recalbox</label></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/Roms">Roms</a></li>
+                  <li><a href="/Bios">Bios</a></li>
+                  <li><a href="/Config">Config</a></li>
+                  <li><a href="/Log">Log</a></li>
+              </ul>
+          </aside>
+
+          <!--
+          <aside class="right-off-canvas-menu">
+              <ul class="off-canvas-list">
+                  <li><label>Users</label></li>
+                  <li><a href="#">Hari Seldon</a></li>
+                  <li><a href="#">...</a></li>
+              </ul>
+          </aside>
+          -->
+
+          <section class="main-section">
+              <!-- content goes here -->
+          </section>
+
+          <a class="exit-off-canvas"></a>
+
+          <div class="row">
+              <div class="large-12 columns">
+                  <h1>{{pageTitle}}</h1>
+              </div>
+          </div>
+
     {{{body}}}
+
+      </div>
+  </div>
+
+    <script src="/javascripts/vendor/jquery.js"></script>
+    <script src="/javascripts/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+
   </body>
 </html>
