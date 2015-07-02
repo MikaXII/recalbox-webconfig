@@ -82,6 +82,7 @@ router.get("/Log",function(req,res,next){
 
 });
 
+// to remove, only sample
 function getAllFolder(currentDirPath, callback) {
 
       fs.readdirSync(currentDirPath).forEach(function(name) {
