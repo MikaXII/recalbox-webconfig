@@ -2,26 +2,38 @@
     <div class="large-4 medium-4 columns">
         <div class="callout panel">
             <h3>System section</h3>
-            <div class="row">
+        </div>
+        <div class="row">
             {{#each directory}}
-                <div class="large-12 medium-12 columns">
-                    <a href="/Roms/{{this}}">{{this}}</a>
+                <div class="large-4 medium-4 columns">
+                    <a href="/Roms/{{this}}" class="radius button">{{this}}</a>
                 </div>
             {{/each}}
-            </div>
         </div>
-
     </div>
 
     <div class="large-8 medium-8 columns">
         <div class="callout panel">
-            <h3>Folders section</h3>
+            <h3>{{sltPath}} section</h3>
             <div class="row">
-                {{#each files}}
-                    <div class="large-3 medium-3 columns">
-                     {{this}}
-                    </div>
-                {{/each}}
+                <div class="large-12 medium-12 columns">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Game</th>
+                            <th>Trash it</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each  files}}
+                            <tr>
+                                <td>{{this.name}}</td>
+                                <td><a href="/Roms/delete/{{this.section}}/{{this.name}}" class="item"><i class="fi-trash"></i> </a> </td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
