@@ -45,8 +45,8 @@ router.get("/Roms/delete/:section/:file",function(req,res,next){
     var file = req.params.file;
     var filePath =recalboxRomsPath+"/"+section+"/"+file;
     fs.unlinkSync(filePath);
-    var arrayDIr =  fs.readdirSync(recalboxRomsPath);
-    res.render('roms', {pageTitle: 'Roms', directory: arrayDIr});
+
+    res.redirect("/Roms/"+section);
 });
 
 router.get("/Bios",function(req,res,next){
