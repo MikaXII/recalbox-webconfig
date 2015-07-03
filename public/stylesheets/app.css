@@ -1,0 +1,61 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* Top bar menu */
+nav.top-bar-recalbox {
+    background: #34495E;
+    height: 3.813rem;
+    line-height: 3.813rem;
+}
+.top-bar-recalbox .top-bar-section li:not(.has-form) a:not(.button) {
+    background: #34495E none repeat scroll 0% 0%;
+}
+.top-bar-recalbox .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+    background: #34495E none repeat scroll 0% 0%;
+    color: #FFF;
+}
+.top-bar-recalbox .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+    background: #34495E none repeat scroll 0% 0%;
+    color: #FFF;
+}
+.top-bar-recalbox .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
+    color: white;
+    background-color: #50687B;
+}
+.top-bar-recalbox .menu-logo a {
+    line-height: 3.6em;
+}
+.top-bar-recalbox .menu-logo img {
+    max-width: 66px;
+    margin-top: 11px;
+}
+.top-bar-recalbox .top-bar-section .left {
+    margin-left: 20px;
+}
+.top-bar-section li.social-icon-menu:not(.has-form) a:not(.button) {
+    padding-left: 0;
+}
+.top-bar-recalbox .top-bar-section li:not(.has-form) a:not(.button) {
+    line-height: 3.813rem;
+}
+.top-bar-recalbox .top-bar-section li.social-icon-menu:not(.has-form) a:not(.button) {
+    line-height: 2.813rem;
+}
+
+/* Foundation icons sizes */
+.size-12 { font-size: 12px; }
+.size-14 { font-size: 14px; }
+.size-16 { font-size: 16px; }
+.size-18 { font-size: 18px; }
+.size-21 { font-size: 21px; }
+.size-24 { font-size: 24px; }
+.size-36 { font-size: 36px; }
+.size-48 { font-size: 48px; }
+.size-60 { font-size: 60px; }
+.size-72 { font-size: 72px; }
