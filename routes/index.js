@@ -26,6 +26,7 @@ router.get("/Roms/:dir",function(req,res,next){
     }else {
 
         //https://www.npmjs.com/package/drag-and-drop-files
+        //https://www.npmjs.com/package/dropzone
         var filePath = path.join(recalboxRomsPath, selectedDir);
 
         var files = [];
@@ -51,14 +52,9 @@ router.get("/Roms/delete/:section/:file",function(req,res,next){
 
 router.get("/Bios",function(req,res,next){
     //list file of /recalbox/share/bios
-    /*
-     getAllFiles(recalboxBiosPath,function(filePath, stat) {
-     console.log(filePath);
 
-     });
-     */
     var arrayFile =  fs.readdirSync(recalboxBiosPath);
-    //console.log(arrayFile);
+
     arrayFile.forEach(function(item){
         console.log(recalboxBiosPath+"/"+item);
         var fd = fs.createReadStream(recalboxBiosPath+"/"+item);
@@ -107,6 +103,12 @@ router.get("/Log",function(req,res,next){
         //res.render('config',{pageTitle:'Config',conf:data});
 
     });
+
+});
+
+router.get("/Upload",function(req,res,next){
+    console.log("Route: '/file-upload' ");
+    console.log("File upload request from user: " + request.body.userName);
 
 });
 
