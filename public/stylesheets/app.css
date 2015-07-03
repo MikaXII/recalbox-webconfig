@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.top-bar-recalbox {
+    background: #34495E;
+}
+.top-bar-recalbox .top-bar-section li:not(.has-form) a:not(.button) {
+    background: #34495E none repeat scroll 0% 0%;
+}
+.top-bar-recalbox .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+    background: #34495E none repeat scroll 0% 0%;
+    color: #FFF;
+}
+.top-bar-recalbox .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+    background: #34495E none repeat scroll 0% 0%;
+    color: #FFF;
+}
+.top-bar-recalbox .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
+    color: white;
+    background-color: #50687B;
+}
+
+
+.top-bar-recalbox img.menu-logo {
+    max-width: 57px;
+    margin-top: 5px;
+}
+.top-bar-recalbox .top-bar-section .left {
+    margin-left: 20px;
+}
