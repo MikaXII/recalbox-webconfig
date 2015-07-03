@@ -6,66 +6,57 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="/stylesheets/foundation.css" />
       <link rel="stylesheet" href="/stylesheets/foundation-icons.css" />
+      <link rel="stylesheet" href="/stylesheets/app.css" />
       <script src="/javascripts/vendor/modernizr.js"></script>
   </head>
   <body>
-  <div class="off-canvas-wrap" data-offcanvas>
-      <div class="inner-wrap">
-          <nav class="tab-bar">
-              <section class="left-small">
-                  <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-              </section>
 
-              <section class="middle tab-bar-section">
-                  <h1 class="title">Webconfig</h1>
-              </section>
+  <div class="fixed">
+      <nav class="top-bar top-bar-recalbox" data-topbar role="navigation">
+          <ul class="title-area">
+              <li class="name menu-logo">
+                  <h1>
+                      <a href="#"><img src="/images/logo.png" /></a>
+                  </h1>
+              </li>
+              <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+              <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          </ul>
 
-              <!--
-              <section class="right-small">
-                  <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-              </section>
-              -->
-          </nav>
+          <section class="top-bar-section">
+              <!-- Right Nav Section -->
+              <ul class="right">
+                  <li class="social-icon-menu"><a href="#"><i class="fi-social-facebook size-16"></i></a></li>
+                  <li class="social-icon-menu"><a href="https://github.com/digitalLumberjack/recalbox-os" target="_blank"><i class="fi-social-github size-16"></i></a></li>
+              </ul>
 
-          <aside class="left-off-canvas-menu">
-              <ul class="off-canvas-list">
-                  <li><label>Recalbox</label></li>
+              <!-- Left Nav Section -->
+              <ul class="left">
                   <li><a href="/">Home</a></li>
                   <li><a href="/Roms/home">Roms</a></li>
                   <li><a href="/Bios">Bios</a></li>
                   <li><a href="/Config">Config</a></li>
                   <li><a href="/Log">Log</a></li>
-                  <li><a href="http://blog.recalbox.com/forums">Forum</a> </li>
-                  <li><a href="https://kiwiirc.com/client/irc.freenode.net/#recalbox">IRC</a> </li>
+                  <li class="has-dropdown">
+                      <a href="#">Liens</a>
+                      <ul class="dropdown">
+                          <li><a href="http://blog.recalbox.com/forums">Forum</a> </li>
+                          <li><a href="https://kiwiirc.com/client/irc.freenode.net/#recalbox">IRC</a> </li>
+                      </ul>
+                  </li>
               </ul>
-          </aside>
-
-          <!--
-          <aside class="right-off-canvas-menu">
-              <ul class="off-canvas-list">
-                  <li><label>Users</label></li>
-                  <li><a href="#">Hari Seldon</a></li>
-                  <li><a href="#">...</a></li>
-              </ul>
-          </aside>
-          -->
-
-          <section class="main-section">
-              <!-- content goes here -->
           </section>
+      </nav>
+  </div>
 
-          <a class="exit-off-canvas"></a>
-
-          <div class="row">
-              <div class="large-12 columns">
-                  <h1>{{pageTitle}}</h1>
-              </div>
-          </div>
-
-    {{{body}}}
-
+    <div class="row">
+      <div class="large-12 columns">
+          <h1>sss{{pageTitle}}</h1>
       </div>
   </div>
+
+  {{{body}}}
+
 
     <script src="/javascripts/vendor/jquery.js"></script>
     <script src="/javascripts/foundation.min.js"></script>
