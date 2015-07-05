@@ -33,8 +33,11 @@ router.get("/Roms/:dir",function(req,res,next){
         var arrayFile = fs.readdirSync(filePath);
         arrayFile.forEach(function (item) {
 
+
             var stat = fs.statSync(filePath +'/'+item);
-            var fsize = stat.size /100;
+            console.log(stat);
+            //var fsize = stat.size /1000000;
+            var fsize = parseFloat(stat.size /1000000.0).toFixed(2);
 
             files.push({section:selectedDir,name:item,fsize:fsize});
         });
