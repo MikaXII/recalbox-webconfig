@@ -40,6 +40,7 @@
                     <thead>
                     <tr>
                         <th>Game</th>
+                        <th>Size</th>
                         <th>Trash it</th>
                     </tr>
                     </thead>
@@ -47,6 +48,7 @@
                     {{#each  files}}
                         <tr>
                             <td>{{this.name}}</td>
+                            <td>{{this.fsize}} Mo</td>
                             <td><a href="/Roms/delete/{{this.section}}/{{this.name}}" class="item"><i class="fi-trash"></i> </a> </td>
                         </tr>
                     {{/each}}

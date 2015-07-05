@@ -1,0 +1,23 @@
+
+<div class="row">
+    <div class="large-12 medium-12 columns">
+        <table>
+            <thead>
+            <tr>
+                <th>Bios</th>
+                <th>Hash</th>
+                <th>Trash it</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each  files}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.hash}}</td>
+                    <td><a href="/Bios/delete//{{this.name}}" class="item"><i class="fi-trash"></i> </a> </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

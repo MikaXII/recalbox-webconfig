@@ -32,7 +32,11 @@ router.get("/Roms/:dir",function(req,res,next){
         var files = [];
         var arrayFile = fs.readdirSync(filePath);
         arrayFile.forEach(function (item) {
-            files.push({section:selectedDir,name:item});
+
+            var stat = fs.statSync(filePath +'/'+item);
+            var fsize = stat.size /100;
+
+            files.push({section:selectedDir,name:item,fsize:fsize});
         });
 
         res.render('roms', {pageTitle: 'Roms', directory: arrayDIr, files:files,sltPath:selectedDir});
@@ -46,7 +50,6 @@ router.get("/Roms/delete/:section/:file",function(req,res,next){
     var file = req.params.file;
     var filePath =recalboxRomsPath+"/"+section+"/"+file;
     fs.unlinkSync(filePath);
-
     res.redirect("/Roms/"+section);
 });
 
@@ -54,15 +57,22 @@ router.get("/Bios",function(req,res,next){
     //list file of /recalbox/share/bios
 
     var arrayFile =  fs.readdirSync(recalboxBiosPath);
+    var files =[];
+    var hash;
 
     arrayFile.forEach(function(item){
-        console.log(recalboxBiosPath+"/"+item);
-        var fd = fs.createReadStream(recalboxBiosPath+"/"+item);
-        console.log(checksum(fd));
+        if(item != "readme.txt" && item !="lisez-moi.txt") {
+
+            var stream = fs.ReadStream(recalboxBiosPath + "/" + item);
+            stream.on("data", function (d) {
+                hash = checksum(d);
+                files.push({name: item, hash:hash});
+            });
+
+        }
     });
 
-
-    res.render('bios',{pageTitle:'Bios'});
+    res.render('bios',{pageTitle:'Bios',files:files});
 });
 
 router.get("/Config",function(req,res,next){

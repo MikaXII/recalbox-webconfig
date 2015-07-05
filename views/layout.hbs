@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="/stylesheets/foundation.css" />
       <link rel="stylesheet" href="/stylesheets/foundation-icons.css" />
       <link rel="stylesheet" href="/stylesheets/app.css" />
-      <script src="/javascripts/vendor/modernizr.js"></script>
+
   </head>
   <body>
 
@@ -16,7 +16,7 @@
           <ul class="title-area">
               <li class="name menu-logo">
                   <h1>
-                      <a href="#"><img src="/images/logo.png" /></a>
+                      <a href="/"><img src="/images/logo.png" /></a>
                   </h1>
               </li>
               <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -26,13 +26,14 @@
           <section class="top-bar-section">
               <!-- Right Nav Section -->
               <ul class="right">
-                  <li class="social-icon-menu"><a href="#"><i class="fi-social-facebook size-16"></i></a></li>
+                  <li class="social-icon-menu"><a href="https://twitter.com/digitaLumberjak" target="_blank"><i class="fi-social-twitter size-16"></i></a></li>
+                  <li class="social-icon-menu"><a href="https://www.facebook.com/recalbox" target="_blank"><i class="fi-social-google-plus size-16"></i></a></li>
+                  <li class="social-icon-menu"><a href="https://www.facebook.com/recalbox" target="_blank"><i class="fi-social-facebook size-16"></i></a></li>
                   <li class="social-icon-menu"><a href="https://github.com/digitalLumberjack/recalbox-os" target="_blank"><i class="fi-social-github size-16"></i></a></li>
               </ul>
 
               <!-- Left Nav Section -->
               <ul class="left">
-                  <li><a href="/">Home</a></li>
                   <li><a href="/Roms/home">Roms</a></li>
                   <li><a href="/Bios">Bios</a></li>
                   <li><a href="/Config">Config</a></li>
@@ -40,8 +41,8 @@
                   <li class="has-dropdown">
                       <a href="#">Liens</a>
                       <ul class="dropdown">
-                          <li><a href="http://blog.recalbox.com/forums">Forum</a> </li>
-                          <li><a href="https://kiwiirc.com/client/irc.freenode.net/#recalbox">IRC</a> </li>
+                          <li><a href="http://blog.recalbox.com/forums" target="_blank">Forum</a> </li>
+                          <li><a href="https://kiwiirc.com/client/irc.freenode.net/#recalbox" target="_blank"s>IRC</a> </li>
                       </ul>
                   </li>
               </ul>
@@ -51,7 +52,7 @@
 
     <div class="row">
       <div class="large-12 columns">
-          <h1>sss{{pageTitle}}</h1>
+          <h1>{{pageTitle}}</h1>
       </div>
   </div>
 
@@ -60,6 +61,7 @@
 
     <script src="/javascripts/vendor/jquery.js"></script>
     <script src="/javascripts/foundation.min.js"></script>
+    <script src="/javascripts/vendor/modernizr.js"></script>
     <script>
         $(document).foundation();
     </script>
