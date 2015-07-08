@@ -48,6 +48,23 @@ nav.top-bar-recalbox {
     line-height: 2.813rem;
 }
 
+/* Mobile menu */
+@media only screen and (max-width: 40em) {
+    .top-bar-section ul {
+        margin: 16px 0px 0px;
+    }
+}
+
+.top-bar.expanded {
+    background: #34495E;
+}
+.top-bar.expanded .title-area {
+    background: #34495E;
+    height: 3.813rem;
+    line-height: 3.813rem;
+}
+
+
 /* Foundation icons sizes */
 .size-12 { font-size: 12px; }
 .size-14 { font-size: 14px; }
