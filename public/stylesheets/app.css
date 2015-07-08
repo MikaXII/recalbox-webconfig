@@ -47,12 +47,19 @@ nav.top-bar-recalbox {
 .top-bar-recalbox .top-bar-section li.social-icon-menu:not(.has-form) a:not(.button) {
     line-height: 2.813rem;
 }
+.top-bar-recalbox .top-bar-section .has-dropdown > a::after {
+    top: 2rem;
+}
 
 /* Mobile menu */
 @media only screen and (max-width: 40em) {
     .top-bar-section ul {
         margin: 16px 0px 0px;
     }
+    .top-bar-recalbox .top-bar-section .left {
+        margin-left: 0;
+    }
+
 }
 
 .top-bar.expanded {
@@ -62,6 +69,20 @@ nav.top-bar-recalbox {
     background: #34495E;
     height: 3.813rem;
     line-height: 3.813rem;
+}
+.top-bar-recalbox.expanded .top-bar-section li:hover:not(.has-form):not(.active) > a:not(.button) {
+    color: #FFF;
+    background-color: #50687B;
+}
+.top-bar-recalbox .top-bar-section .dropdown li.title h5 a:hover, .top-bar-section .dropdown li.parent-link a:hover {
+    background-color: #6a8598;
+}
+.top-bar-recalbox .toggle-topbar.menu-icon a {
+    color: #FFF;
+    height: 48px;
+    line-height: 2.813rem;
+    padding: 0px 2.5rem 0px 0.9375rem;
+    position: relative;
 }
 
 
