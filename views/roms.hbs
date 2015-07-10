@@ -15,27 +15,10 @@
     <div class="large-12 medium-12 columns">
         <div class="callout panel">
             <h3>{{sltPath}} section</h3>
-            <div class="row">
-                <div class="large-12 medium-12 columns">
-                    <div id="simpleUpload">
-
-                        <!-- http://css-tricks.com/css3-progress-bars/ -->
-                        <div class="meter">
-                            <span class="roller"></span>
-                        </div>
-
-                        <form action="/Upload" class="dropzone" id="logoDropZone">
-                            <input type="hidden" name="userName" value="user"/>
-                        </form>
-                    </div>
-
-                    <!-- Also checkout BS example : http://www.dropzonejs.com/bootstrap.html -->
-
-                </div>
-            </div>
         </div>
+
         <div class="row">
-            <div class="large-12 medium-12 columns">
+            <div class="large-8 medium-8 small-12 columns">
                 <table>
                     <thead>
                     <tr>
@@ -54,6 +37,24 @@
                     {{/each}}
                     </tbody>
                 </table>
+            </div>
+            <div class="large-4 medium-4 small-12 columns">
+                <div id="simpleUpload">
+                    <h4>Ajouter des roms</h4>
+                    <!-- http://css-tricks.com/css3-progress-bars/ -->
+                    <div class="meter">
+                        <span class="roller"></span>
+                    </div>
+                    <form action="/Roms/upload/{{sltPath}}" method="POST" enctype="multipart/form-data" class="dropzone" id="logoDropZone">
+                        <input type="hidden" name="userName" value="user"/>
+                        <input type="file" name="file" multiple="true" />
+                        <input type="submit" value="Upload" />
+                    </form>
+                    <!-- Also checkout BS example : http://www.dropzonejs.com/bootstrap.html -->
+
+                </div>
+
+
             </div>
         </div>
     </div>
