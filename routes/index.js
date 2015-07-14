@@ -1,8 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var  fs = require('fs');
+var fs = require('fs');
 var path = require('path');
 var crypto = require('crypto');
+var busboy = require('connect-busboy');
+
+router.use(busboy());
+
 
 // Const
 var recalboxConfPath    = '/recalbox/share/system/recalbox.conf';
@@ -16,34 +20,60 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET ROMS */
-router.get("/Roms/:dir",function(req,res,next){
+router.get("/Roms/:dir",function(req, res, next) {
 
     //list directory of /recalbox/share/roms
     var arrayDIr =  fs.readdirSync(recalboxRomsPath);
     var selectedDir = req.params.dir;
-    if(selectedDir == "home") {
-        res.render('roms', {pageTitle: 'Roms', directory: arrayDIr});
-    }else {
 
+    if(selectedDir == "home") {
+        res.render('roms', { pageTitle: 'Roms', directory: arrayDIr });
+    } else {
         //https://www.npmjs.com/package/drag-and-drop-files
         //https://www.npmjs.com/package/dropzone
         var filePath = path.join(recalboxRomsPath, selectedDir);
 
         var files = [];
         var arrayFile = fs.readdirSync(filePath);
+
         arrayFile.forEach(function (item) {
+            var stat = fs.statSync(filePath + '/' + item);
+            console.log('file stat', stat);
 
-
-            var stat = fs.statSync(filePath +'/'+item);
-            console.log(stat);
-            //var fsize = stat.size /1000000;
             var fsize = parseFloat(stat.size /1000000.0).toFixed(2);
 
-            files.push({section:selectedDir,name:item,fsize:fsize});
+            files.push({
+				section: selectedDir,
+				name: item,
+				fsize: fsize
+			});
         });
 
         res.render('roms', {pageTitle: 'Roms', directory: arrayDIr, files:files,sltPath:selectedDir});
     }
+
+});
+
+router.route('/Roms/upload/:section').post(function(req, res, next) {
+		var section = req.params.section;
+
+		req.pipe(req.busboy);
+
+		req.busboy.on('file', function (fieldname, file, filename) {
+			console.log("Uploading: " + filename);
+
+			var pathNewFile = recalboxRomsPath + "/" + section + "/" + filename;
+			var fstream = fs.createWriteStream(pathNewFile);
+
+			file.pipe(fstream);
+			fstream.on('close', function () {
+				console.log("Upload Finished of " + filename);
+			});
+		});
+		req.busboy.on('finish', function() {
+			res.redirect('back');           //where to go next
+		});
+
 
 });
 
@@ -116,12 +146,6 @@ router.get("/Log",function(req,res,next){
         //res.render('config',{pageTitle:'Config',conf:data});
 
     });
-
-});
-
-router.get("/Upload",function(req,res,next){
-    console.log("Route: '/file-upload' ");
-    console.log("File upload request from user: " + request.body.userName);
 
 });
 
