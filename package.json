@@ -13,6 +13,12 @@
     "hbs": "~2.9.0",
     "morgan": "~1.5.3",
     "serve-favicon": "~2.2.1",
-    "connect-busboy": "0.0.2"
+    "connect-busboy": "0.0.2",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0"
+  },
+  "devDependencies": {
+    "grunt-express-server": "~0.5.1",
+    "grunt-contrib-watch": "~0.6.1"
   }
 }
