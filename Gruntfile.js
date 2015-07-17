@@ -9,7 +9,8 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				options: {
-					script: 'bin/www'
+					script: 'bin/www',
+					port: 3000,
 				}
 			}
 		},
