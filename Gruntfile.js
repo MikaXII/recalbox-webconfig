@@ -12,6 +12,12 @@ module.exports = function(grunt) {
 					script: 'bin/www',
 					port: 3000,
 				}
+			},
+			prod: {
+				options: {
+					script: 'bin/www',
+					port: 80,
+				}
 			}
 		},
 		watch: {
@@ -31,4 +37,5 @@ module.exports = function(grunt) {
 
 	// Create custom tasks
 	grunt.registerTask('server:dev', [ 'express:dev', 'watch' ])
+	grunt.registerTask('server', [ 'express:prod', 'watch' ])
 };
