@@ -1,0 +1,99 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #4fff4b;
+}
+
+/* Top bar menu */
+nav.top-bar-recalbox {
+    background: #34495E;
+    height: 3.813rem;
+    line-height: 3.813rem;
+}
+.top-bar-recalbox .top-bar-section li:not(.has-form) a:not(.button) {
+    background: #34495E none repeat scroll 0% 0%;
+}
+.top-bar-recalbox .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+    background: #34495E none repeat scroll 0% 0%;
+    color: #FFF;
+}
+.top-bar-recalbox .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+    background: #34495E none repeat scroll 0% 0%;
+    color: #FFF;
+}
+.top-bar-recalbox .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
+    color: white;
+    background-color: #50687B;
+}
+.top-bar-recalbox .menu-logo a {
+    line-height: 3.6em;
+}
+.top-bar-recalbox .menu-logo img {
+    max-width: 66px;
+    margin-top: 11px;
+}
+.top-bar-recalbox .top-bar-section .left {
+    margin-left: 20px;
+}
+.top-bar-section li.social-icon-menu:not(.has-form) a:not(.button) {
+    padding-left: 0;
+}
+.top-bar-recalbox .top-bar-section li:not(.has-form) a:not(.button) {
+    line-height: 3.813rem;
+}
+.top-bar-recalbox .top-bar-section li.social-icon-menu:not(.has-form) a:not(.button) {
+    line-height: 2.813rem;
+}
+.top-bar-recalbox .top-bar-section .has-dropdown > a::after {
+    top: 2rem;
+}
+
+/* Mobile menu */
+@media only screen and (max-width: 40em) {
+    .top-bar-section ul {
+        margin: 16px 0px 0px;
+    }
+    .top-bar-recalbox .top-bar-section .left {
+        margin-left: 0;
+    }
+
+}
+
+.top-bar.expanded {
+    background: #34495E;
+}
+.top-bar.expanded .title-area {
+    background: #34495E;
+    height: 3.813rem;
+    line-height: 3.813rem;
+}
+.top-bar-recalbox.expanded .top-bar-section li:hover:not(.has-form):not(.active) > a:not(.button) {
+    color: #FFF;
+    background-color: #50687B;
+}
+.top-bar-recalbox .top-bar-section .dropdown li.title h5 a:hover, .top-bar-section .dropdown li.parent-link a:hover {
+    background-color: #6a8598;
+}
+.top-bar-recalbox .toggle-topbar.menu-icon a {
+    color: #FFF;
+    height: 48px;
+    line-height: 2.813rem;
+    padding: 0px 2.5rem 0px 0.9375rem;
+    position: relative;
+}
+
+
+/* Foundation icons sizes */
+.size-12 { font-size: 12px; }
+.size-14 { font-size: 14px; }
+.size-16 { font-size: 16px; }
+.size-18 { font-size: 18px; }
+.size-21 { font-size: 21px; }
+.size-24 { font-size: 24px; }
+.size-36 { font-size: 36px; }
+.size-48 { font-size: 48px; }
+.size-60 { font-size: 60px; }
+.size-72 { font-size: 72px; }

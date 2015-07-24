@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../src/app/app');
 var debug = require('debug')('recalbox-webconfig:server');
 var http = require('http');
 
