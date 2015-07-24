@@ -3,19 +3,21 @@
         <div class="callout panel">
             <h3>System section</h3>
         </div>
-        <div class="row">
+        <ul class="small-block-grid-6" style="text-align: center">
             {{#each directory}}
-                <div class="large-4 medium-4 columns">
-                    <a href="/Roms/{{this}}" class="small radius button">{{this}}</a>
-                </div>
+                <li class="">
+                    <a href="/Roms/{{this}}">
+                        <i class="fi-folder" style="color: #E08942; font-size: 3em"></i><br />
+                        {{this}}
+                    </a>
+                </li>
             {{/each}}
-        </div>
+        </ul>
     </div>
 
+    <hr />
+
     <div class="large-12 medium-12 columns">
-        <div class="callout panel">
-            <h3>{{sltPath}} section</h3>
-        </div>
 
         <div class="row">
             <div class="large-8 medium-8 small-12 columns">
