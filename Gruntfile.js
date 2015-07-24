@@ -43,9 +43,22 @@ module.exports = function(grunt) {
 
 		cssmin: {
 			target: {
+				options: {
+					banner: '/* Recalbox minified CSS. Minified on <%= grunt.template.today("yyyy-mm-dd hh:MM:ss")%> by GruntJS-cssmin */'
+				},
 				files: [{
 					'public/css/recalbox.min.css': ['src/css/*.css']
 				}]
+			}
+		},
+		uglify: {
+			options: {
+				mangle: false // prevent changes to variable name. Maybe set to 'true' after testing ?
+			},
+			target: {
+				files: {
+					'public/js/vendor.min.js': ['src/vendor/jquery.js', 'src/vendor/*.js']
+				}
 			}
 		}
 	});
@@ -54,6 +67,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-express-server');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 	// Create custom tasks
 	grunt.registerTask('server:dev', [ 'express:dev', 'watch' ])
