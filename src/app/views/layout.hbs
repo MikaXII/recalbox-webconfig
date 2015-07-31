@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/recalbox.min.css" />
+</head>
+<body>
+
+<div class="fixed">
+    <nav class="top-bar top-bar-recalbox" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name menu-logo">
+                <h1>
+                    <a href="/"><img src="/images/logo.png" /></a>
+                </h1>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right hide-for-small-only">
+                <li class="social-icon-menu"><a href="https://twitter.com/digitaLumberjak" target="_blank"><i class="fi-social-twitter size-16"></i></a></li>
+                <li class="social-icon-menu"><a href="https://www.facebook.com/recalbox" target="_blank"><i class="fi-social-google-plus size-16"></i></a></li>
+                <li class="social-icon-menu"><a href="https://www.facebook.com/recalbox" target="_blank"><i class="fi-social-facebook size-16"></i></a></li>
+                <li class="social-icon-menu"><a href="https://github.com/digitalLumberjack/recalbox-os" target="_blank"><i class="fi-social-github size-16"></i></a></li>
+            </ul>
+
+            <!-- Left Nav Section -->
+            <ul class="left">
+                <li><a href="/Roms/home">Roms</a></li>
+                <li><a href="/Bios">Bios</a></li>
+                <li><a href="/Config">Config</a></li>
+                <li><a href="/Log">Log</a></li>
+                <li class="has-dropdown">
+                    <a href="#">Liens</a>
+                    <ul class="dropdown">
+                        <li><a href="http://blog.recalbox.com/forums" target="_blank">Forum</a> </li>
+                        <li><a href="https://kiwiirc.com/client/irc.freenode.net/#recalbox" target="_blank"s>IRC</a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</div>
+
+<div class="row">
+    <div class="large-12 columns">
+        <h1>{{pageTitle}}</h1>
+    </div>
+</div>
+
+{{{body}}}
+
+<script src="/js/vendor.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+</body>
+</html>
