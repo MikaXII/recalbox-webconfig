@@ -60,6 +60,9 @@ module.exports = function(grunt) {
 					'public/js/vendor.min.js': ['src/vendor/jquery.js', 'src/vendor/*.js']
 				}
 			}
+		},
+		jshint: {
+			all: ['Gruntfile.js', 'src/app/**/*.js']
 		}
 	});
 
@@ -68,8 +71,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// Create custom tasks
-	grunt.registerTask('server:dev', [ 'express:dev', 'watch' ])
-	grunt.registerTask('server', [ 'express:prod', 'watch' ])
+	grunt.registerTask('server:dev', [ 'express:dev', 'watch' ]);
+	grunt.registerTask('server', [ 'express:prod', 'watch' ]);
 };

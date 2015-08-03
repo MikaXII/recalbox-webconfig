@@ -18,9 +18,10 @@
     "grunt-contrib-jshint": "~0.10.0"
   },
   "devDependencies": {
-    "grunt-express-server": "~0.5.1",
-    "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-cssmin": "~0.12.3",
-    "grunt-contrib-uglify": "~0.9.1"
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "~0.9.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-express-server": "~0.5.1"
   }
 }
