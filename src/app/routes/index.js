@@ -34,7 +34,7 @@ function getAllFolder(currentDirPath, callback) {
             //callback(filePath, stat);
         } else if (stat.isDirectory()) {
             //walk(filePath, callback);
-            callback(filePath, stat)
+            callback(filePath, stat);
         }
     });
 }
