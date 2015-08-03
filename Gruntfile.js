@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 		watch: {
 			express_dev: {
 				files:  [ 'src/**/*.js'],
-				tasks:  [ 'express:dev' ],
+				tasks:  [ 'express:dev', 'jshint:all' ],
 				options: {
 					spawn: false, // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
 					livereload: true
