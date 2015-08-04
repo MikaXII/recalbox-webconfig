@@ -11,7 +11,7 @@ var busboy = require('connect-busboy');
 router.use(busboy());
 
 
-var recalboxBiosPath    = "/recalbox/share/bios";
+var recalboxBiosPath = "/recalbox/share/bios";
 
 
 // todo bug : to many duplicate entry
@@ -73,7 +73,7 @@ function checksum (str, algorithm, encoding) {
     return crypto
         .createHash(algorithm || 'md5')
         .update(str, 'utf8')
-        .digest(encoding || 'hex')
+        .digest(encoding || 'hex');
 }
 
 module.exports = router;

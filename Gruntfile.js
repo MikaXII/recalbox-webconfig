@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 		watch: {
 			express_dev: {
 				files:  [ 'src/**/*.js'],
-				tasks:  [ 'express:dev' ],
+				tasks:  [ 'express:dev', 'jshint:all' ],
 				options: {
 					spawn: false, // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
 					livereload: true
@@ -60,6 +60,9 @@ module.exports = function(grunt) {
 					'public/js/vendor.min.js': ['src/vendor/jquery.js', 'src/vendor/*.js']
 				}
 			}
+		},
+		jshint: {
+			all: ['Gruntfile.js', 'src/app/**/*.js']
 		}
 	});
 
@@ -68,8 +71,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// Create custom tasks
-	grunt.registerTask('server:dev', [ 'express:dev', 'watch' ])
-	grunt.registerTask('server', [ 'express:prod', 'watch' ])
+	grunt.registerTask('server:dev', [ 'express:dev', 'watch' ]);
+	grunt.registerTask('server', [ 'express:prod', 'watch' ]);
 };
