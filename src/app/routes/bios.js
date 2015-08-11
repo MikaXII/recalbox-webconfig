@@ -13,24 +13,43 @@ router.use(busboy());
 
 var recalboxBiosPath = "/recalbox/share/bios";
 
-
 // todo bug : to many duplicate entry
 router.get("/",function(req,res,next){
     //list file of /recalbox/share/bios
 
-    var arrayFile =  fs.readdirSync(recalboxBiosPath);
+    var arrayFile = fs.readdirSync(recalboxBiosPath);
+
     var files =[];
-    var hash;
+
+    /*arrayFile.forEach(function(item){
+        if(item != "readme.txt" && item !="lisez-moi.txt") {
+            fs.readFile(recalboxBiosPath + "/" + item, 'utf8', function(e, b) {  // Using string here to be fair for all md5 engines
+                console.log(md5(b))
+            })
+        }
+    });*/
+
+
+    var hashMD5;
 
     arrayFile.forEach(function(item){
         if(item != "readme.txt" && item !="lisez-moi.txt") {
 
-            var stream = fs.ReadStream(recalboxBiosPath + "/" + item);
-            stream.on("data", function (d) {
-                hash = checksum(d);
-                files.push({name: item, hash:hash});
-            });
+            var stat = fs.statSync(recalboxBiosPath + "/" + item);
 
+            var stream = fs.createReadStream(recalboxBiosPath + "/" + item);
+            stream
+                .on("readable", function () {
+                    var chunk;
+                    while (null !== (chunk = stream.read())) {
+                        hashMD5 = checksum(chunk);
+                    }
+                   // hashMD5 = checksum(chunk);
+                    // files.push({name: item, hash:hash});
+                })
+                .on("end",function(){
+                    files.push({name: item, hash:hashMD5});
+                });
         }
     });
 
