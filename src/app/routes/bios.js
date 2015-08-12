@@ -38,19 +38,16 @@ router.get("/",function(req,res,next){
             var stat = fs.statSync(recalboxBiosPath + "/" + item);
 
             var stream = fs.createReadStream(recalboxBiosPath + "/" + item);
-            stream
-                .on("readable", function () {
-                    var chunk;
-                    while (null !== (chunk = stream.read())) {
-                        hashMD5 = checksum(chunk);
-                    }
-                   // hashMD5 = checksum(chunk);
-                    // files.push({name: item, hash:hash});
-                })
-                .on("close",function(){
-                    files.push({name: item, hash:hashMD5});
+            stream.on("data", function (chunk) {
+            	hashMD5 = checksum(chunk);
+           	 console.log(hashMD5); //good hash here
+		});
+            stream.on("end",function(){
+            	//files.push({name: item, hash:hashMD5}); // bad hash here
+		//console.log(hashMD5);
                 });
-        }
+         files.push({name: item, hash:hashMD5}); // no hash here
+	}
     });
 
     res.render('bios',{pageTitle:'Bios',files:files});
