@@ -47,7 +47,7 @@ router.get("/",function(req,res,next){
                    // hashMD5 = checksum(chunk);
                     // files.push({name: item, hash:hash});
                 })
-                .on("end",function(){
+                .on("close",function(){
                     files.push({name: item, hash:hashMD5});
                 });
         }
