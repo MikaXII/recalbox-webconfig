@@ -7,7 +7,7 @@ var fs = require('fs');
 var path = require('path');
 var crypto = require('crypto');
 var busboy = require('connect-busboy');
-
+var exec = require('child_process').exec;
 router.use(busboy());
 
 
@@ -52,7 +52,10 @@ router.get("/",function(req,res,next){
                 });
         }
     });
-
+    exec("md5sum -c " +recalboxBiosPath + "/readme.txt" +, function (error, stdout, stderr){ 
+        // todo implement 
+        console.log(stdout);
+        });
     res.render('bios',{pageTitle:'Bios',files:files});
 });
 
