@@ -63,8 +63,10 @@ router.get("/",function(req,res,next){
 		if(ssTab.length >= 2)
 		files.push({name:ssTab[0],hash:ssTab[1]});
 	}	
-	 });
+
     res.render('bios',{pageTitle:'Bios',files:files});
+	 });
+   // res.render('bios',{pageTitle:'Bios',files:files});
 });
 
 router.route('/upload').post(function(req, res, next) {
