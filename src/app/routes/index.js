@@ -13,7 +13,7 @@ router.use(busboy());
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    res.render('foundation', { title: 'Express' });
 });
 // todo : implement status of recalbox
 

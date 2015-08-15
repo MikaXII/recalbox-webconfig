@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]> <html class="no-js lt-ie9" lang=" lang="en""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-    <title>{{title}}</title>
+    <title>{{title}} - Recalbox management</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/recalbox.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/recalbox.min.css">
+    <script src="/js/modernizr.min.js"></script>
 </head>
 <body>
 
 <div class="fixed">
-    <nav class="top-bar top-bar-recalbox" data-topbar role="navigation">
+    <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
-            <li class="name menu-logo">
-                <h1>
-                    <a href="/"><img src="/images/logo.png" /></a>
-                </h1>
+            <li class="name">
+                <p class="title-1">
+                    <a href="/"><img src="/images/logo.png" class="logo" alt=""></a>
+                </p>
             </li>
             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
             <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -22,11 +24,10 @@
 
         <section class="top-bar-section">
             <!-- Right Nav Section -->
-            <ul class="right hide-for-small-only">
-                <li class="social-icon-menu"><a href="https://twitter.com/digitaLumberjak" target="_blank"><i class="fi-social-twitter size-16"></i></a></li>
-                <li class="social-icon-menu"><a href="https://www.facebook.com/recalbox" target="_blank"><i class="fi-social-google-plus size-16"></i></a></li>
-                <li class="social-icon-menu"><a href="https://www.facebook.com/recalbox" target="_blank"><i class="fi-social-facebook size-16"></i></a></li>
-                <li class="social-icon-menu"><a href="https://github.com/digitalLumberjack/recalbox-os" target="_blank"><i class="fi-social-github size-16"></i></a></li>
+            <ul class="right social-badges">
+                <li><a href="https://twitter.com/digitaLumberjak" target="_blank"><i class="fi-social-twitter size-16"></i></a></li>
+                <li><a href="https://www.facebook.com/recalbox" target="_blank"><i class="fi-social-facebook size-16"></i></a></li>
+                <li><a href="https://github.com/digitalLumberjack/recalbox-os" target="_blank"><i class="fi-social-github size-16"></i></a></li>
             </ul>
 
             <!-- Left Nav Section -->
@@ -38,8 +39,8 @@
                 <li class="has-dropdown">
                     <a href="#">Liens</a>
                     <ul class="dropdown">
-                        <li><a href="http://blog.recalbox.com/forums" target="_blank">Forum</a> </li>
-                        <li><a href="https://kiwiirc.com/client/irc.freenode.net/#recalbox" target="_blank"s>IRC</a> </li>
+                        <li><a href="http://blog.recalbox.com/forums" target="_blank">Forum</a></li>
+                        <li><a href="https://kiwiirc.com/client/irc.freenode.net/#recalbox" target="_blank">IRC</a></li>
                     </ul>
                 </li>
             </ul>
@@ -56,9 +57,10 @@
 {{{body}}}
 
 <script src="/js/vendor.min.js"></script>
-<script>
+<script type="text/javascript">
+//<![CDATA[
     $(document).foundation();
+//]]>
 </script>
-
 </body>
 </html>

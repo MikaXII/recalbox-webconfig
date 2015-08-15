@@ -10,6 +10,7 @@ var roms = require('./routes/rom');
 var bios = require('./routes/bios');
 var config = require('./routes/config');
 var logs = require('./routes/log');
+var foundation = require('./routes/foundation');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use("/Roms", roms);
 app.use("/Bios", bios);
 app.use("/Config", config);
 app.use("/Log", logs);
+app.use("/Foundation", foundation);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
