@@ -10,6 +10,8 @@ router.use(busboy());
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('foundation', { title: 'Foundation sample' });
+    res.render('foundation', {
+        page_title: 'Foundation5 sample page'
+    });
 });
 module.exports = router;

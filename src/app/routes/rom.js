@@ -22,7 +22,10 @@ router.get("/:dir",function(req, res, next) {
     var selectedDir = req.params.dir;
 
     if(selectedDir == "home") {
-        res.render('roms', { pageTitle: 'Roms', directory: arrayDIr });
+        res.render('rom_index', {
+            page_title: 'Roms',
+            directory: arrayDIr
+        });
     } else {
         //https://www.npmjs.com/package/drag-and-drop-files
         //https://www.npmjs.com/package/dropzone
@@ -44,7 +47,12 @@ router.get("/:dir",function(req, res, next) {
             });
         });
 
-        res.render('roms', {pageTitle: 'Roms', directory: arrayDIr, files:files,sltPath:selectedDir});
+        res.render('rom_list', {
+            page_title: 'Roms for '+selectedDir,
+            directory: arrayDIr,
+            files: files,
+            sltPath: selectedDir
+        });
     }
 
 });

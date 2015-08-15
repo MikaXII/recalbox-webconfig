@@ -29,8 +29,10 @@ router.get("/",function(req,res,next){
             //   return console.log(err);
         }
         console.log(data);
-        res.render("log",{pageTitle:"Log",conf:data});
-        //res.render('config',{pageTitle:'Config',conf:data});
+        res.render("log",{
+            page_title: "Log",
+            conf: data
+        });
 
     });
 

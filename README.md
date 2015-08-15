@@ -38,3 +38,7 @@ make install-dev
 ```
 
 If Ruby gems make conflicts with allready installed gems on your system, think about to use something like [RVM](https://rvm.io/) (the [RVM gemsets](https://rvm.io/gemsets/basics) should be the trick).
+
+Templates
+
+View templates are rendered by [Handlebars.js](http://handlebarsjs.com) (the *hbs* plugin).
