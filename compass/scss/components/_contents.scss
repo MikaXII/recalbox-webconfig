@@ -5,3 +5,9 @@
  * Body contents elements
  * **
  */
+
+.dropzone.dz-clickable{
+    input[type="file"]{
+        display:none;
+    }
+}

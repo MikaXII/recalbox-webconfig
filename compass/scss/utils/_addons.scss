@@ -50,7 +50,12 @@ strong.upper{
     }
 }
 
-// Raccourci de positionnement relatif
+// Expand table to the full width
+table.expand{
+    width: 100%;
+}
+
+// Shortcut for relative position
 .relative-position{
     position: relative;
 }

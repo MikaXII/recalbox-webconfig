@@ -9,12 +9,12 @@
 
         <div class="row">
             <div class="large-8 medium-8 small-12 columns">
-                <table>
+                <table class="expand">
                     <thead>
                     <tr>
-                        <th>Game</th>
+                        <th>Filename</th>
                         <th>Size</th>
-                        <th>Trash it</th>
+                        <th>Delete it</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{this.name}}</td>
                             <td>{{this.fsize}} Mo</td>
-                            <td><a href="/Roms/delete/{{this.section}}/{{this.name}}" class="item"><i class="fi-trash"></i> </a> </td>
+                            <td class="text-center"><a href="/Roms/delete/{{this.section}}/{{this.name}}" class="item"><i class="fi-trash"></i> </a> </td>
                         </tr>
                     {{/each}}
                     </tbody>

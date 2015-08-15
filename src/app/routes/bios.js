@@ -59,8 +59,13 @@ router.get("/",function(req,res,next){
         var tab = stdout.split('\n');
         for(var i =0;i<tab.length;++i){
             var ssTab = tab[i].split(':');
-            if(ssTab.length >= 2)
-            files.push({name:ssTab[0],hash:ssTab[1]});
+            if(ssTab.length >= 2) {
+                files.push({
+                    name: ssTab[0],
+                    exist: (ssTab[1]==' OK'),
+                    hash: ssTab[1]
+                });
+            }
         }
 
         res.render('bios',{

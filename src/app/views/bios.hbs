@@ -3,12 +3,12 @@
     <div class="large-12 medium-12 columns">
         <div class="row">
             <div class="large-8 medium-8 small-12 columns">
-                <table>
+                <table class="expand">
                     <thead>
                     <tr>
-                        <th>Bios</th>
+                        <th>Filename</th>
                         <th>Hash</th>
-                        <th>Trash it</th>
+                        <th>Delete it</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -16,7 +16,13 @@
                         <tr>
                             <td>{{this.name}}</td>
                             <td>{{this.hash}}</td>
-                            <td><a href="/Bios/delete/{{this.name}}" class="item"><i class="fi-trash"></i> </a> </td>
+                            <td class="text-center">
+                            {{#if this.exist}}
+                                <a href="/Bios/delete/{{this.name}}" class="item"><i class="fi-trash"></i> </a>
+                            {{else}}
+                                &nbsp;
+                            {{/if}}
+                            </td>
                         </tr>
                     {{/each}}
                     </tbody>
