@@ -1,6 +1,6 @@
 /**
- * Created by mika on 03/08/15.
- */
+* Created by mika on 03/08/15.
+*/
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
@@ -34,8 +34,7 @@ router.get("/",function(req,res,next){
     });*/
 
 
-/*    var hashMD5;
-
+    /* var hashMD5;
     arrayFile.forEach(function(item){
         if(item != "readme.txt" && item !="lisez-moi.txt") {
 
@@ -43,30 +42,37 @@ router.get("/",function(req,res,next){
 
             var stream = fs.createReadStream(recalboxBiosPath + "/" + item);
             stream.on("data", function (chunk) {
-            	hashMD5 = checksum(chunk);
-           	 console.log(hashMD5); //good hash here
-		});
-            stream.on("end",function(){
-            	//files.push({name: item, hash:hashMD5}); // bad hash here
-		//console.log(hashMD5);
+                hashMD5 = checksum(chunk);
+                console.log(hashMD5); //good hash here
                 });
-         files.push({name: item, hash:hashMD5}); // no hash here
-	}
+            stream.on("end",function(){
+                //files.push({name: item, hash:hashMD5}); // bad hash here
+                //console.log(hashMD5);
+                });
+        files.push({name: item, hash:hashMD5}); // no hash here
+        }
     });*/
-    exec("cd " + recalboxBiosPath +" && md5sum -c readme.txt", function (error, stdout, stderr){ 
+    
+    exec("cd " + recalboxBiosPath +" && md5sum -c readme.txt", function (error, stdout, stderr){
         // todo implement 
-        console.log(stdout);
+        //console.log(stdout);
         var tab = stdout.split('\n');
-	for(var i =0;i<tab.length;++i)
-	{	
-		var ssTab = tab[i].split(':');
-		if(ssTab.length >= 2)
-		files.push({name:ssTab[0],hash:ssTab[1]});
-	}	
+        for(var i =0;i<tab.length;++i){
+            var ssTab = tab[i].split(':');
+            if(ssTab.length >= 2) {
+                files.push({
+                    name: ssTab[0],
+                    exist: (ssTab[1]==' OK'),
+                    hash: ssTab[1]
+                });
+            }
+        }
 
-    res.render('bios',{pageTitle:'Bios',files:files});
-	 });
-   // res.render('bios',{pageTitle:'Bios',files:files});
+        res.render('bios',{
+            page_title: 'Bios',
+            files: files
+        });
+    });
 });
 
 router.route('/upload').post(function(req, res, next) {

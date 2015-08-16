@@ -15,13 +15,16 @@ router.use(busboy());
 var recalboxConfPath    = '/recalbox/share/system/recalbox.conf';
 
 router.get("/",function(req,res,next){
-    // show config file  /recalbox/share/system/recalbox.conf
+    // show config file
     fs.readFile(recalboxConfPath, 'utf8', function (err,data) {
         if (err) {
             return console.log(err);
         }
-
-        res.render('config',{pageTitle:'Config',conf:data});
+        
+        res.render('config', {
+            page_title: 'Config',
+            conf: data
+        });
     });
 
 });
@@ -33,7 +36,10 @@ router.post("/",function(req,res)
     fs.writeFile(recalboxConfPath, data, function (err) {
         if (err) return console.log(err);
     });
-    res.render('config',{pageTitle:'Config',conf:data});
+    res.render('config',{
+        page_title: 'Config',
+        conf: data
+    });
 });
 
 // todo implement beginners method for edit conf

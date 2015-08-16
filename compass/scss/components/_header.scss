@@ -1,0 +1,35 @@
+//@import "components/icomoon";
+
+/*
+ * 
+ * All stuff for page header
+ * 
+ */
+.top-bar{
+    .title-area{
+        .name{
+            img.logo{
+                height: rem-calc(50px);
+                @media #{$topbar-media-query} {
+                    width: 80%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    
+    .top-bar-section{
+        .social-badges{
+            display: none;
+            @media #{$large-up} {
+                display: block;
+            }
+            
+            &>li{
+                a{
+                    height: $topbar-height;
+                }
+            }
+        }
+    }
+}

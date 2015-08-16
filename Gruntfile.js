@@ -57,7 +57,31 @@ module.exports = function(grunt) {
 			},
 			target: {
 				files: {
-					'public/js/vendor.min.js': ['src/vendor/jquery.js', 'src/vendor/*.js']
+                                        'public/js/modernizr.min.js': [
+                                            'foundation5/bower_components/modernizr/modernizr.js'
+                                        ],
+                                        'public/js/vendor.min.js': [
+                                            'foundation5/bower_components/jquery/dist/jquery.js',
+                                            'foundation5/bower_components/jquery.cookie/jquery.cookie.js',
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.abide.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.accordion.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.alert.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.clearing.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.dropdown.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.equalizer.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.interchange.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.joyride.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.magellan.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.offcanvas.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.reveal.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.slider.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.tab.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.tooltip.js",
+                                            "foundation5/bower_components/foundation/js/foundation/foundation.topbar.js",
+                                            //"foundation5/bower_components/foundation/js/foundation/foundation.orbit.js", //Orbit Slider is deprecated
+                                            'src/vendor/*.js'
+                                        ]
 				}
 			}
 		},
