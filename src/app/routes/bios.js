@@ -39,13 +39,11 @@ router.get("/",function(req,res,next){
 
             var stream = fs.createReadStream(recalboxBiosPath + "/" + item);
             stream
-                .on("readable", function () {
-                    var chunk;
-                    while (null !== (chunk = stream.read())) {
+                .on("data", function (chunk) {
+                  //  var chunk;
+                   // while (null !== (chunk = stream.read())) {
                         hashMD5 = checksum(chunk);
-                    }
-                   // hashMD5 = checksum(chunk);
-                    // files.push({name: item, hash:hash});
+               //     }
                 })
                 .on("end",function(){
                     files.push({name: item, hash:hashMD5});
