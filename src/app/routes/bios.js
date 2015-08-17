@@ -7,7 +7,7 @@ var fs = require('fs');
 var path = require('path');
 var crypto = require('crypto');
 var busboy = require('connect-busboy');
-
+var exec = require('child_process').exec;
 router.use(busboy());
 
 
@@ -16,6 +16,10 @@ var recalboxBiosPath = "/recalbox/share/bios";
 // todo bug : to many duplicate entry
 router.get("/",function(req,res,next){
     //list file of /recalbox/share/bios
+    // Disable caching for content files
+    res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires", 0);
 
     var arrayFile = fs.readdirSync(recalboxBiosPath);
 
@@ -30,7 +34,7 @@ router.get("/",function(req,res,next){
     });*/
 
 
-    var hashMD5;
+/*    var hashMD5;
 
     arrayFile.forEach(function(item){
         if(item != "readme.txt" && item !="lisez-moi.txt") {
@@ -47,11 +51,31 @@ router.get("/",function(req,res,next){
                 })
                 .on("end",function(){
                     files.push({name: item, hash:hashMD5});
+            stream.on("data", function (chunk) {
+            	hashMD5 = checksum(chunk);
+           	 console.log(hashMD5); //good hash here
+		});
+            stream.on("end",function(){
+            	//files.push({name: item, hash:hashMD5}); // bad hash here
+		//console.log(hashMD5);
                 });
-        }
-    });
+         files.push({name: item, hash:hashMD5}); // no hash here
+	}
+    });*/
+    exec("cd " + recalboxBiosPath +" && md5sum -c readme.txt", function (error, stdout, stderr){ 
+        // todo implement 
+        console.log(stdout);
+        var tab = stdout.split('\n');
+	for(var i =0;i<tab.length;++i)
+	{	
+		var ssTab = tab[i].split(':');
+		if(ssTab.length >= 2)
+		files.push({name:ssTab[0],hash:ssTab[1]});
+	}	
 
     res.render('bios',{pageTitle:'Bios',files:files});
+	 });
+   // res.render('bios',{pageTitle:'Bios',files:files});
 });
 
 router.route('/upload').post(function(req, res, next) {
