@@ -10,76 +10,39 @@ var busboy = require('connect-busboy');
 var exec = require('child_process').exec;
 router.use(busboy());
 
-
 var recalboxBiosPath = "/recalbox/share/bios";
 
-// todo bug : to many duplicate entry
 router.get("/",function(req,res,next){
-    //list file of /recalbox/share/bios
-    // Disable caching for content files
-    res.header("Cache-Control", "no-cache, no-store, must-revalidate");
-    res.header("Pragma", "no-cache");
-    res.header("Expires", 0);
 
     var arrayFile = fs.readdirSync(recalboxBiosPath);
-
     var files =[];
+    var fHash = [];
 
-    /*arrayFile.forEach(function(item){
-        if(item != "readme.txt" && item !="lisez-moi.txt") {
-            fs.readFile(recalboxBiosPath + "/" + item, 'utf8', function(e, b) {  // Using string here to be fair for all md5 engines
-                console.log(md5(b))
-            })
-        }
-    });*/
-
-
-    /* var hashMD5;
-    arrayFile.forEach(function(item){
-        if(item != "readme.txt" && item !="lisez-moi.txt") {
-
-            var stat = fs.statSync(recalboxBiosPath + "/" + item);
-
-            var stream = fs.createReadStream(recalboxBiosPath + "/" + item);
-            stream
-                .on("data", function (chunk) {
-                  //  var chunk;
-                   // while (null !== (chunk = stream.read())) {
-                        hashMD5 = checksum(chunk);
-               //     }
-                })
-                .on("end",function(){
-                    files.push({name: item, hash:hashMD5});
-            stream.on("data", function (chunk) {
-                hashMD5 = checksum(chunk);
-                console.log(hashMD5); //good hash here
-                });
-            stream.on("end",function(){
-                //files.push({name: item, hash:hashMD5}); // bad hash here
-                //console.log(hashMD5);
-                });
-        files.push({name: item, hash:hashMD5}); // no hash here
-        }
-    });*/
-    
     exec("cd " + recalboxBiosPath +" && md5sum -c readme.txt", function (error, stdout, stderr){
-        // todo implement 
-        //console.log(stdout);
         var tab = stdout.split('\n');
         for(var i =0;i<tab.length;++i){
             var ssTab = tab[i].split(':');
             if(ssTab.length >= 2) {
-                files.push({
+                fHash.push({
                     name: ssTab[0],
-                    exist: (ssTab[1]==' OK'),
+                    exist: (ssTab[1]==' OK' || ssTab[1]==' Réussi'),
                     hash: ssTab[1]
                 });
             }
         }
 
+        arrayFile.forEach(function (item) {
+            if(item != "readme.txt" && item != "lisez-moi.txt") {
+                files.push({
+                    name: item
+                });
+            }
+        });
+
         res.render('bios',{
             page_title: 'Bios',
-            files: files
+            fHashs: fHash,
+            files:files
         });
     });
 });
@@ -114,13 +77,5 @@ router.get("/delete/:file",function(req,res,next){
     res.redirect("/Bios");
 });
 
-
-// todo : remove, it's just a sample
-function checksum (str, algorithm, encoding) {
-    return crypto
-        .createHash(algorithm || 'md5')
-        .update(str, 'utf8')
-        .digest(encoding || 'hex');
-}
 
 module.exports = router;

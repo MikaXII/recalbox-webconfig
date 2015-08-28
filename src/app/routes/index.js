@@ -12,7 +12,7 @@ router.use(busboy());
 /* GET home page. */
 // todo : implement status of recalbox
 router.get('/', function(req, res, next) {
-    res.render('foundation', {
+    res.render('index', {
         page_title: 'Dashboard'
     });
 });

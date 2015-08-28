@@ -2,12 +2,32 @@
 <div class="row">
     <div class="large-12 medium-12 columns">
         <div class="row">
-            <div class="large-8 medium-8 small-12 columns">
+            <div class="large-4 medium-4 small-12 columns">
+                <h3>Verification</h3>
                 <table class="expand">
                     <thead>
                     <tr>
                         <th>Filename</th>
                         <th>Hash</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each  fHashs}}
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.hash}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="large-4 medium-4 small-12 columns">
+                <h3>Management</h3>
+                <table class="expand">
+                    <thead>
+                    <tr>
+                        <th>Filename</th>
                         <th>Delete it</th>
                     </tr>
                     </thead>
@@ -15,13 +35,8 @@
                     {{#each  files}}
                         <tr>
                             <td>{{this.name}}</td>
-                            <td>{{this.hash}}</td>
                             <td class="text-center">
-                            {{#if this.exist}}
                                 <a href="/Bios/delete/{{this.name}}" class="item"><i class="fi-trash"></i> </a>
-                            {{else}}
-                                &nbsp;
-                            {{/if}}
                             </td>
                         </tr>
                     {{/each}}
