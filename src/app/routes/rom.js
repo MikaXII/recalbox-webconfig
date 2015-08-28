@@ -36,7 +36,7 @@ router.get("/:dir",function(req, res, next) {
 
         arrayFile.forEach(function (item) {
             var stat = fs.statSync(filePath + '/' + item);
-            console.log('file stat', stat);
+            //console.log('file stat', stat);
 
             var fsize = parseFloat(stat.size /1000000.0).toFixed(2);
 
